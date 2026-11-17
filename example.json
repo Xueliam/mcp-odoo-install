@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "odoo": {
+      "command": "/Users/XXX/.local/bin/uvx",
+      "args": [
+        "mcp-server-odoo@0.9.0"
+      ],
+      "env": {
+        "ODOO_URL": "https://client.odoo.com",
+        "ODOO_DB": "ma-base",
+        "ODOO_USER": "xxx@xxxx.xxxx",
+        "ODOO_API_KEY": "XXXX",
+        "ODOO_YOLO": "true",
+        "ODOO_MCP_DEFAULT_LIMIT": "100",
+        "ODOO_MCP_MAX_LIMIT": "1000"
+      }
+    }
+  }
+}

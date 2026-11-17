@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Installation MCP Odoo - Windows</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    color: #1a1d21;
+    background: #fff;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  header {
+    border-bottom: 3px solid #0dc9ae;
+    padding-bottom: 18px;
+    margin-bottom: 34px;
+  }
+  header img { height: 34px; vertical-align: middle; margin-right: 16px; }
+  header h1 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    margin: 0;
+    color: #1a1d21;
+    font-weight: 600;
+  }
+  header p { margin: 4px 0 0 50px; font-size: 12px; color: #667085; }
+  h2 {
+    font-size: 14px;
+    color: #0f766e;
+    margin: 36px 0 12px;
+  }
+  h2 .num { margin-right: 8px; vertical-align: middle; }
+  .num {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    background: #0dc9ae;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  p { margin: 10px 0; }
+  code {
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    font-family: "SF Mono", Consolas, monospace;
+  }
+  code.winkey svg { fill: #1a1d21; vertical-align: -1px; }
+  pre {
+    background: #16181c;
+    color: #5de9d1;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: "SF Mono", Consolas, monospace;
+    overflow-x: auto;
+    margin: 12px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .callout {
+    border-left: 3px solid #f59e0b;
+    background: #fffbeb;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12.5px;
+    margin: 12px 0;
+  }
+  .callout strong { color: #92400e; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin: 12px 0;
+  }
+  table td {
+    padding: 8px 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  table td:first-child {
+    width: 30%;
+    font-weight: 600;
+    background: #f8fafc;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Installation de l'assistant Odoo pour Claude</h1>
+    <p>Guide rapide — Windows</p>
+  </div>
+</header>
+
+<p>Ce guide installe et configure automatiquement la connexion entre Claude Desktop et votre instance Odoo. L'ensemble prend moins de deux minutes.</p>
+
+<h2><span class="num">1</span> Ouvrir PowerShell</h2>
+<p>Appuie sur <code class="winkey"><svg viewBox="0 0 88 88" width="11" height="11"><rect x="4" y="4" width="38" height="38"/><rect x="46" y="4" width="38" height="38"/><rect x="4" y="46" width="38" height="38"/><rect x="46" y="46" width="38" height="38"/></svg></code> + <code>R</code>, tape <code>powershell</code>, puis <code>Entrée</code>.</p>
+
+<h2><span class="num">2</span> Coller la commande d'installation</h2>
+<p>Dans la fenêtre PowerShell qui s'ouvre, colle cette commande puis appuie sur <code>Entrée</code> :</p>
+<pre>irm https://raw.githubusercontent.com/Xueliam/mcp-odoo-install/main/install-mcp-odoo-windows.ps1 | iex</pre>
+
+<h2><span class="num">3</span> Répondre aux questions</h2>
+<p>Le script installe automatiquement les outils nécessaires puis demande les informations suivantes :</p>
+<table>
+  <tr><td>URL Odoo</td><td>Adresse de ton instance, ex. <code>https://client.odoo.com</code></td></tr>
+  <tr><td>Base de données</td><td>Visible dans le sélecteur de base au login, ou dans l'URL</td></tr>
+  <tr><td>Email / utilisateur</td><td>Ton identifiant de connexion Odoo</td></tr>
+  <tr><td>Clé API</td><td>Odoo &gt; profil &gt; Compte &gt; Sécurité du compte &gt; Nouvelle clé API</td></tr>
+</table>
+
+<h2><span class="num">4</span> Redémarrer Claude Desktop</h2>
+<p>Une fois le script terminé ("=== Termine ==="), redémarre entièrement Claude Desktop pour activer le serveur MCP.</p>
+<div class="callout">
+  <strong>Important :</strong> fermer la fenêtre ne suffit pas — Claude Desktop reste actif en arrière-plan. Ouvre le Gestionnaire des tâches (<code>Ctrl</code> + <code>Maj</code> + <code>Échap</code>), trouve <code>Claude</code>, clique sur <code>Fin de tâche</code>, puis relance l'application.
+</div>
+
+<h2>En cas de problème</h2>
+<p>Si le script échoue ou si Claude Desktop n'est pas détecté automatiquement, ouvre une issue sur le repo GitHub.</p>
+
+</body>
+</html>
